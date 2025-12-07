@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Termux King - Ethical Hacking & Termux Tools</title>
+    <meta name="description" content="Free Termux Tools, Ethical Hacking Tutorials in Hindi">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron&family=Rajdhani:wght@600&display=swap');
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: #0d0d0d;
+            color: #00ff00;
+            font-family: 'Rajdhani', sans-serif;
+            overflow-x: hidden;
+        }
+        .matrix {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(0deg, transparent, #000);
+            pointer-events: none;
+            z-index: -1;
+        }
+        header {
+            background: rgba(0,0,0,0.9);
+            padding: 20px;
+            text-align: center;
+            border-bottom: 2px solid #00ff00;
+            box-shadow: 0 0 20px #00ff0044;
+        }
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3rem;
+            text-shadow: 0 0 20px #00ff00;
+            animation: glow 2s infinite alternate;
+        }
+        @keyframes glow {
+            from { text-shadow: 0 0 10px #00ff00; }
+            to { text-shadow: 0 0 30px #00ff00, 0 0 50px #00ff00; }
+        }
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+        .card {
+            background: #111;
+            border: 1px solid #00ff00;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 0 15px rgba(0,255,0,0.3);
+            transition: 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 30px rgba(0,255,0,0.6);
+        }
+        .subscribe-btn {
+            background: #ff0000;
+            color: white;
+            padding: 15px 30px;
+            font-size: 1.5rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 0 20px #ff0000;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 20px #ff0000; }
+            50% { box-shadow: 0 0 40px #ff0000; }
+            100% { box-shadow: 0 0 20px #ff0000; }
+        }
+        .popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #111;
+            border: 3px solid #00ff00;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 0 50px #00ff00;
+            z-index: 9999;
+            display: none;
+            text-align: center;
+        }
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 2rem;
+            cursor: pointer;
+            color: #00ff00;
+        }
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: #000;
+            margin-top: 50px;
+            border-top: 2px solid #00ff00;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="matrix"></div>
+
+    <header>
+        <h1><i class="fas fa-terminal"></i> Termux King</h1>
+        <p>Ethical Hacking | Termux Tools | Free Tutorials in Hindi</p>
+    </header>
+
+    <div class="container">
+        <div class="card">
+            <h2><i class="fas fa-skull-crossbones"></i> Welcome Hacker!</h2>
+            <p>Yaha milenge sabse latest Termux tools, ethical hacking tricks aur bilkul free tutorials Hindi mein.</p>
+            <br>
+            <button class="subscribe-btn" onclick="openPopup()">
+                <i class="fab fa-youtube"></i> Subscribe करो Thenewtips Channel
+            </button>
+        </div>
+
+        <div class="card">
+            <h2>Latest Tutorials</h2>
+            <ul style="font-size:1.2rem; line-height:2;">
+                <li>✔ Termux से Website Hacking</li>
+                <li>✔ Instagram Brute Force Tool</li>
+                <li>✔ WiFi Password Crack 2025</li>
+                <li>✔ DDOS Attack Tool</li>
+                <li>✔ Phishing Page बनाना सीखो</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Subscribe Popup -->
+    <div class="popup" id="subscribePopup">
+        <span class="close" onclick="closePopup()">×</span>
+        <h2><i class="fab fa-youtube" style="color:red;"></i> Thenewtips</h2>
+        <p style="font-size:1.3rem; margin:20px 0;">
+            Free Termux + Ethical Hacking Tutorials के लिए<br>
+            <b>Thenewtips</b> channel को Subscribe करो और Bell icon दबाओ!
+        </p>
+        <a href="https://www.youtube.com/@thenewtips?sub_confirmation=1" target="_blank">
+            <button style="background:#ff0000; color:white; padding:15px 40px; font-size:1.5rem; border:none; border-radius:50px; cursor:pointer;">
+                <i class="fas fa-bell"></i> Subscribe + Bell करो
+            </button>
+        </a>
+    </div>
+
+    <footer>
+        <p>Made with <i class="fas fa-heart" style="color:red;"></i> by Thenewtips Team © 2025</p>
+    </footer>
+
+    <script>
+        // Popup 5 second baad khud open ho jayega
+        setTimeout(openPopup, 5000);
+
+        function openPopup() {
+            document.getElementById("subscribePopup").style.display = "block";
+        }
+        function closePopup() {
+            document.getElementById("subscribePopup").style.display = "none";
+        }
+
+        // Matrix rain effect (optional mast lagega)
+        const canvas = document.createElement("canvas");
+        canvas.style.position = "fixed";
+        canvas.style.top = "0";
+        canvas.style.left = "0";
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        document.body.appendChild(canvas);
+        const ctx = canvas.getContext("2d");
+
+        const matrix = "ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789@#$%^&*()*&^%+-/~{[|`]}";
+        const matrixArray = matrix.split("");
+
+        const fontSize = 14;
+        const columns = canvas.width / fontSize;
+        const drops = [];
+        for(let x = 0; x < columns; x++) drops[x] = 1;
+
+        function draw() {
+            ctx.fillStyle = "rgba(0, 0, 0, 0.04)";
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = "#00ff00";
+            ctx.font = fontSize + "px monospace";
+
+            for(let i = 0; i < drops.length; i++) {
+                const text = matrixArray[Math.floor(Math.random() * matrixArray.length)];
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+                if(drops[i] * fontSize > canvas.height && Math.random() > 0.975)
+                    drops[i] = 0;
+
+                drops[i]++;
+            }
+        }
+        setInterval(draw, 35);
+    </script>
+</body>
+</html>
